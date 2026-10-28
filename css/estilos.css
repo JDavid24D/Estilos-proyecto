@@ -1,0 +1,72 @@
+/* Colores tomados del logo de NETTPLUS */
+:root {
+  --azul: #1e3a8a;
+  --azul-oscuro: #14296b;
+  --verde: #5cb531;
+  --verde-oscuro: #3f9a2a;
+  --amarillo: #f2d230;
+  --fondo: #f4f7fb;
+  --texto: #1f2937;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+header {
+  background: linear-gradient(135deg, var(--azul), var(--verde));
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+}
+
+header p { margin: .3rem 0 1rem; }
+header .lema { color: var(--amarillo); font-weight: bold; }
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+main {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+section { margin-bottom: 2rem; }
+
+h2 {
+  color: var(--azul);
+  border-bottom: 3px solid var(--verde);
+  padding-bottom: .3rem;
+}
+
+h3 { color: var(--azul-oscuro); }
+
+a { color: var(--azul); }
+
+dt { font-weight: bold; margin-top: 1rem; color: var(--azul-oscuro); }
+dd { margin-left: 1.5rem; margin-bottom: .4rem; }
+
+mark { background: var(--amarillo); padding: 0 .25rem; }
+
+footer {
+  background: var(--azul-oscuro);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer a { color: var(--amarillo); }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnologías – Dashboard de nómina – NETTPLUS</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+<header>
+  <!-- Opcional: <img src="img/Logo.png" alt="Logo de NETTPLUS" width="120"> -->
+  <h1>Dashboard de nómina</h1>
+  <p>Acta de constitución del proyecto y levantamiento de información para <strong>NETTPLUS</strong></p>
+  <p class="lema">THE POWER OF FIBER</p>
+  <nav>
+    <ul>
+      <li><a class="boton" href="index.html">Inicio</a></li>
+      <li><a class="boton" href="datos-generales.html">Datos generales</a></li>
+      <li><a class="boton" href="proposito.html">Propósito y justificación</a></li>
+      <li><a class="boton" href="requisitos.html">Requisitos</a></li>
+      <li><a class="boton activo" href="tecnologias.html">Tecnologías</a></li>
+      <li><a class="boton" href="diseno.html">Diseño</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section>
+<h2>Tecnologías</h2>
+
+<p>En resumen, el sistema se construirá con:</p>
+<ul>
+  <li><strong>Lenguaje y framework:</strong> Python y Django.</li>
+  <li><strong>Base de datos:</strong> PostgreSQL.</li>
+  <li><strong>Procesamiento de Excel:</strong> openpyxl y pandas.</li>
+  <li><strong>Interfaz web:</strong> HTML, CSS, JavaScript, Bootstrap, Chart.js y FullCalendar.</li>
+  <li><strong>Herramientas:</strong> Git y GitHub, Figma, Enterprise Architect, pruebas de Django y Lighthouse.</li>
+  <li><strong>Publicación (por definir):</strong> HTTPS, Docker, Gunicorn y Nginx.</li>
+</ul>
+<article><h3>Lenguaje y framework</h3><dl>
+<dt>Python</dt>
+<dd><strong>Qué es:</strong> lenguaje de programación. Se lee fácil y tiene muchas librerías para trabajar con datos y archivos.</dd>
+<dd><strong>Para qué la usamos:</strong> es el lenguaje de todo el sistema por dentro: leer los Excel, calcular horas trabajadas, atrasos y ausentismos, y armar los reportes (RF11 a RF18).</dd>
+<dt>Django</dt>
+<dd><strong>Qué es:</strong> framework web de Python. Ya trae inicio de sesión, usuarios y permisos, formularios, plantillas y un panel de administración.</dd>
+<dd><strong>Para qué la usamos:</strong> usuarios y roles (RF01 a RF03). Los permisos se revisan en el servidor (RNF03) y las contraseñas se guardan con hash y sal (RNF01). También sirve para que parámetros como la tolerancia de atrasos y el día de corte se cambien sin tocar el código (RF13). La bitácora de auditoría (RNF05) la hacemos como un modelo propio.</dd>
+</dl></article>
+<article><h3>Base de datos</h3><dl>
+<dt>PostgreSQL</dt>
+<dd><strong>Qué es:</strong> sistema de bases de datos relacional, gratuito y de código abierto. Django trabaja con él directamente.</dd>
+<dd><strong>Para qué la usamos:</strong> guarda colaboradores, marcaciones originales, horarios, permisos, horas extra, usuarios, bitácora e historial de cargas. Sus restricciones de unicidad evitan marcaciones duplicadas (RF07) y las marcaciones se guardan tal como llegan (RNF18). Los respaldos diarios se hacen con sus propias herramientas (RNF17).</dd>
+</dl></article>
+<article><h3>Procesamiento de Excel</h3><dl>
+<dt>openpyxl</dt>
+<dd><strong>Qué es:</strong> librería de Python para leer y escribir archivos .xlsx.</dd>
+<dd><strong>Para qué la usamos:</strong> leer los archivos de ZKTeco identificando las columnas por su nombre y no por su posición (RNF14), y generar los reportes en Excel (RF24).</dd>
+<dt>pandas</dt>
+<dd><strong>Qué es:</strong> librería de Python para trabajar con tablas de datos.</dd>
+<dd><strong>Para qué la usamos:</strong> ordenar y sumar las marcaciones por colaborador y por día, y calcular los totales de los reportes. Ayuda a procesar un archivo de unas 60 000 marcaciones en menos de 2 minutos (RNF12).</dd>
+</dl></article>
+<article><h3>Interfaz web</h3><dl>
+<dt>HTML, CSS y JavaScript</dt>
+<dd><strong>Qué es:</strong> los tres lenguajes base de cualquier página web: estructura, estilo y comportamiento.</dd>
+<dd><strong>Para qué la usamos:</strong> las pantallas del sistema, armadas con las plantillas de Django.</dd>
+<dt>Bootstrap</dt>
+<dd><strong>Qué es:</strong> librería de estilos para páginas que se adaptan al tamaño de la pantalla.</dd>
+<dd><strong>Para qué la usamos:</strong> que la aplicación se vea bien desde 1366 × 768 y en tablet (RNF13), con tablas y formularios ordenados. También para aplicar los colores corporativos de NETTPLUS cuando los entregue (RNF08).</dd>
+<dt>Chart.js</dt>
+<dd><strong>Qué es:</strong> librería de JavaScript para hacer gráficos.</dd>
+<dd><strong>Para qué la usamos:</strong> los gráficos del dashboard (horas, atrasos, ausentismos). Cada gráfico va con su tabla de datos para no depender solo del color (RNF10).</dd>
+<dt>FullCalendar</dt>
+<dd><strong>Qué es:</strong> librería de JavaScript para mostrar calendarios.</dd>
+<dd><strong>Para qué la usamos:</strong> el calendario de turnos fijos y rotativos de cada colaborador (RF10).</dd>
+<dt>Chrome, Edge y Firefox</dt>
+<dd><strong>Qué es:</strong> los navegadores con los que se abre la aplicación.</dd>
+<dd><strong>Para qué la usamos:</strong> probamos en las dos últimas versiones estables de cada uno (RNF13).</dd>
+</dl></article>
+<article><h3>Herramientas de desarrollo, diseño y pruebas</h3><dl>
+<dt>Git y GitHub</dt>
+<dd><strong>Qué es:</strong> Git es un sistema de control de versiones. GitHub guarda el repositorio en la nube.</dd>
+<dd><strong>Para qué la usamos:</strong> trabajar los tres sobre el mismo código sin pisarnos y guardar el historial de cambios.</dd>
+<dt>Figma</dt>
+<dd><strong>Qué es:</strong> herramienta para diseñar pantallas de una aplicación.</dd>
+<dd><strong>Para qué la usamos:</strong> hacer el prototipo del dashboard para que NETTPLUS lo apruebe antes de programar.</dd>
+<dt>Enterprise Architect</dt>
+<dd><strong>Qué es:</strong> herramienta para hacer diagramas de modelado como los UML.</dd>
+<dd><strong>Para qué la usamos:</strong> los diagramas del proyecto, como el diagrama de contexto que pide la plantilla de visión y alcance.</dd>
+<dt>Pruebas de Django</dt>
+<dd><strong>Qué es:</strong> sistema de pruebas automáticas que viene incluido en Django.</dd>
+<dd><strong>Para qué la usamos:</strong> comprobar que los cálculos de horas, atrasos y ausentismos dan lo mismo que un cálculo manual en Excel (objetivos OB-02 y OB-04).</dd>
+<dt>Lighthouse</dt>
+<dd><strong>Qué es:</strong> herramienta de Chrome que revisa accesibilidad y rendimiento de una página.</dd>
+<dd><strong>Para qué la usamos:</strong> revisar el contraste de los textos y el uso con teclado (RNF09).</dd>
+</dl></article>
+<article><h3>Seguridad y publicación <mark>(por definir)</mark></h3>
+<p>Estas dependen de dónde se aloje la aplicación, que todavía no sabemos. Lo que sigue es lo que usaríamos en principio:</p><dl>
+<dt>HTTPS (TLS 1.2 o superior)</dt>
+<dd><strong>Qué es:</strong> conexión cifrada entre el navegador y el servidor.</dd>
+<dd><strong>Para qué la usamos:</strong> toda la comunicación del sistema va cifrada (RNF02).</dd>
+<dt>Docker</dt>
+<dd><strong>Qué es:</strong> herramienta que empaqueta la aplicación con todo lo que necesita para que funcione igual en cualquier servidor.</dd>
+<dd><strong>Para qué la usamos:</strong> instalar la aplicación y la base de datos en el servidor de NETTPLUS o en la nube.</dd>
+<dt>Gunicorn y Nginx</dt>
+<dd><strong>Qué es:</strong> Gunicorn ejecuta la aplicación Django y Nginx recibe las visitas y las dirige a ella.</dd>
+<dd><strong>Para qué la usamos:</strong> publicar la aplicación en un servidor, con la disponibilidad que se acuerde (RNF16).</dd>
+</dl></article>
+<article><h3>Tecnología para más adelante: API de ZKTeco</h3>
+<p>Si NETTPLUS habilita la API de ZKTeco, usaríamos la librería <strong>requests</strong> de Python para pedir los datos y una tarea programada (por ejemplo <strong>cron</strong>) para hacerlo todos los días. Para probar la conexión sirve <strong>Postman</strong>. Como la carga de datos está separada del cálculo (RNF15), cambiar de Excel a API no modifica las reglas de cálculo. Esto queda fuera de la primera versión.</p></article>
+</section>
+
+<p><a class="boton" href="index.html">Volver al menú</a></p>
+
+</main>
+
+<footer>
+  <p>Proyecto Dashboard de nómina – NETTPLUS</p>
+  <p>Equipo de desarrollo: Carlos Correa, Emilio Cueva y Jorge Díaz.</p>
+  <p>Documento en borrador. Última revisión: 21 de octubre de 2026.</p>
+  <p><a href="index.html">Volver al menú principal</a></p>
+</footer>
+
+</body>
+</html>
